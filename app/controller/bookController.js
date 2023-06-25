@@ -91,7 +91,7 @@ function bookController() {
         async delete(req, resp,) {
             try {
                 const bookId = req.params.id;
-                const deleteBook = await Book.findByIdAndRemove(bookId);
+                const deleteBook = await Book.findByIdAndRemove({ _id: bookId });
                 if (!deleteBook) {
                     return resp.status(404).json({ error: 'Book not found' });
                 }
